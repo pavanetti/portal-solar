@@ -16,16 +16,18 @@
       </div>
     </div>
 
-    <%= form_tag('/search/simple') do %>
+    <%= form_tag(power_generators_path, method: :get) do %>
       <div class="simple-form">
         <div class="simple-form__input">
-          <input name="terms" class="form-control form-control-lg" type="text" placeholder="o que procura?">
+          <input name="query" class="form-control form-control-lg" type="text" placeholder="o que procura?">
         </div>
         <div class="simple-form__btn">
           <button type="submit" class="btn btn-outline-primary btn-lg">Pesquisar</button>
         </div>
       </div>
+    <% end %>
 
+    <%= form_tag('/search/advanced') do %>
       <div class="advanced-form" style="display:none;">
         Entradas do usuário para pesquisar uma coleção de geradores de energia com base nas recomendações fornecidas e melhor custo de frete.
       </div>

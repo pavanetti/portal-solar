@@ -15,6 +15,7 @@ class PowerGenerator < ApplicationRecord
   ]
 
   scope :by_term, -> (term) {
+    term = term.split.join(' & ')
     where "to_tsvector('english', name || ' ' || description) @@ to_tsquery('english', ?)", term
   }
 
