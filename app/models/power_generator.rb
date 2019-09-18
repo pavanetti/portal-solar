@@ -14,4 +14,8 @@ class PowerGenerator < ApplicationRecord
     trapezoidal
   ]
 
+  scope :by_term, -> (term) {
+    where "to_tsvector('english', name || ' ' || description) @@ to_tsquery('english', ?)", term
+  }
+
 end

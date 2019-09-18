@@ -16,10 +16,10 @@
       </div>
     </div>
 
-    <%= form_tag do %>
+    <%= form_tag('/search/simple') do %>
       <div class="simple-form">
         <div class="simple-form__input">
-          <input class="form-control form-control-lg" type="text" placeholder="o que procura?">
+          <input name="terms" class="form-control form-control-lg" type="text" placeholder="o que procura?">
         </div>
         <div class="simple-form__btn">
           <button type="submit" class="btn btn-outline-primary btn-lg">Pesquisar</button>
