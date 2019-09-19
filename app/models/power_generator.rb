@@ -19,4 +19,50 @@ class PowerGenerator < ApplicationRecord
     where "to_tsvector('english', name || ' ' || description) @@ to_tsquery('english', ?)", term
   }
 
+  scope :by_manufacturer, -> (manufacturer) {
+    if manufacturer.present?
+      where manufacturer: manufacturer
+    else
+      all
+    end
+  }
+  scope :by_structure_type, -> (structure_type) {
+    if structure_type.present?
+      where structure_type: structure_type
+    else
+      all
+    end
+  }
+  scope :by_min_power, -> (min_power) {
+    if min_power.present?
+      where arel_table[:kwp].gteq(min_power)
+    else
+      all
+    end
+  }
+  scope :by_max_price, -> (max_price) {
+    if max_price.present?
+      where arel_table[:price].lteq(max_price)
+    else
+      all
+    end
+  }
+  scope :by_max_dimension, -> (dimension, max_dimension) {
+    if [:height, :width, :lenght].include?(dimension) && max_dimension.present?
+      where arel_table[dimension].lteq(max_dimension)
+    else
+      all
+    end
+  }
+
+  def self.by_advanced_search params
+    by_manufacturer(params[:manufacturer])
+      .by_structure_type(params[:structure_type])
+      .by_min_power(params[:kwp])
+      .by_max_price(params[:price])
+      .by_max_dimension(:height, params[:height])
+      .by_max_dimension(:width, params[:width])
+      .by_max_dimension(:lenght, params[:lenght])
+  end
+
 end
