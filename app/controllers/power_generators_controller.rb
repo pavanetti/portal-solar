@@ -10,6 +10,10 @@ class PowerGeneratorsController < ApplicationController
     end
   end
 
+  def show
+    @power_generator = PowerGenerator.find params[:id]
+  end
+
   private
   def search_type
     if params[:query].present?
