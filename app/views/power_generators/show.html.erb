@@ -1,3 +1,9 @@
 <div class="container" >
   <%= render 'power_generator', power_generator: @power_generator %>
+  <div class="box">
+    <h2>Digite o CEP para o cálculo do frete.</h2>
+    <input type="text" name="cep" placeholder="CEP" data-cep>
+    <%= button_tag 'Calcular frete', onclick: "computeFreight(#{@power_generator.id})"%>
+    <p>Valor do FRETE: <span data-freight></span></p>
+  </div>
 </div>

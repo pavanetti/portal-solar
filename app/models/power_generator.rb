@@ -65,4 +65,8 @@ class PowerGenerator < ApplicationRecord
       .by_max_dimension(:lenght, params[:lenght])
   end
 
+  def cubed_weight
+    height * width * lenght * 300
+  end
+
 end
