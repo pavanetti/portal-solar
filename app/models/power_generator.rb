@@ -19,50 +19,22 @@ class PowerGenerator < ApplicationRecord
     where "to_tsvector('english', name || ' ' || description) @@ to_tsquery('english', ?)", term
   }
 
-  scope :by_manufacturer, -> (manufacturer) {
-    if manufacturer.present?
-      where manufacturer: manufacturer
-    else
-      all
-    end
-  }
-  scope :by_structure_type, -> (structure_type) {
-    if structure_type.present?
-      where structure_type: structure_type
-    else
-      all
-    end
-  }
-  scope :by_min_power, -> (min_power) {
-    if min_power.present?
-      where arel_table[:kwp].gteq(min_power)
-    else
-      all
-    end
-  }
-  scope :by_max_price, -> (max_price) {
-    if max_price.present?
-      where arel_table[:price].lteq(max_price)
-    else
-      all
-    end
-  }
-  scope :by_max_dimension, -> (dimension, max_dimension) {
-    if [:height, :width, :lenght].include?(dimension) && max_dimension.present?
-      where arel_table[dimension].lteq(max_dimension)
-    else
-      all
-    end
-  }
+  effectless_scope :by_manufacturer, -> (m) { where manufacturer: m }
+  effectless_scope :by_structure_type, -> (st) { where structure_type: st }
+  effectless_scope :by_min_power, -> (min_power) { where arel_table[:kwp].gteq(min_power) }
+  effectless_scope :by_max_price, -> (max_price) { where arel_table[:price].lteq(max_price) }
+  effectless_scope :by_max_height, -> (max_height) { where arel_table[:height].lteq(max_height) }
+  effectless_scope :by_max_width, -> (max_width) { where arel_table[:width].lteq(max_width) }
+  effectless_scope :by_max_length, -> (max_length) { where arel_table[:lenght].lteq(max_length) }
 
   def self.by_advanced_search params
     by_manufacturer(params[:manufacturer])
       .by_structure_type(params[:structure_type])
       .by_min_power(params[:kwp])
       .by_max_price(params[:price])
-      .by_max_dimension(:height, params[:height])
-      .by_max_dimension(:width, params[:width])
-      .by_max_dimension(:lenght, params[:lenght])
+      .by_max_height(params[:height])
+      .by_max_width(params[:width])
+      .by_max_length(params[:length])
   end
 
   def cubed_weight
