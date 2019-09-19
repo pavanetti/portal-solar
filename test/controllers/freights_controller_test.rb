@@ -2,7 +2,8 @@ require 'test_helper'
 
 class FreightsControllerTest < ActionDispatch::IntegrationTest
   test "should get show" do
-    get freights_show_url
+    id = PowerGenerator.take.id
+    get "/freights/SP?generator=#{id}"
     assert_response :success
   end
 
