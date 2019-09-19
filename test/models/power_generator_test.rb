@@ -19,4 +19,11 @@ class PowerGeneratorTest < ActiveSupport::TestCase
     found = PowerGenerator.by_manufacturer ''
     assert(found.count == PowerGenerator.count)
   end
+
+  test "should perform an advanced search" do
+    found = PowerGenerator.by_advanced_search(
+      structure_type: 'fibrocimento', lenght: '', width: 0.3)
+    assert(found.present?)
+    assert(found.distinct.pluck(:structure_type) == ['fibrocimento'])
+  end
 end
