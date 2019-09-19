@@ -8,4 +8,15 @@ class PowerGeneratorTest < ActiveSupport::TestCase
         pg.name.include?(term) || pg.description.include?(term)
     end)
   end
+
+  test "should search by manufacturer" do
+    found = PowerGenerator.by_manufacturer 'Solar Group'
+    manufacturers = found.distinct.pluck(:manufacturer)
+    assert(manufacturers == ['Solar Group'])
+  end
+
+  test "should return all entities when manufacturer is not passed" do
+    found = PowerGenerator.by_manufacturer ''
+    assert(found.count == PowerGenerator.count)
+  end
 end
