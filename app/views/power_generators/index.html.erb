@@ -1,7 +1,9 @@
 <div>
   <div class="container" >
     <% @power_generators.each do |power_generator| %>
-      <%= render 'power_generator', power_generator: power_generator %>
+      <%= link_to power_generator, class: 'no-decoration' do %>  
+        <%= render 'power_generator', power_generator: power_generator %>
+      <% end %>
     <% end %>
   </div>
 </div>

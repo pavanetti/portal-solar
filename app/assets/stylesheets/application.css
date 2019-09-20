@@ -34,6 +34,11 @@ h2 {
   font-size: 22px;
 }
 
+.no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
+
 p {
   font-style: normal;
   padding-top: 10px;
