@@ -16,7 +16,7 @@
 //= require_tree .
 
 function ready(event) {
-  $('input[type=radio][name=searchRadio]').change(function() {
+  $('input[type=radio][name=searchRadio]').change(function () {
     if (this.value === 'simple') {
       $('.simple-form').show();
       $('.advanced-form').hide();
@@ -28,4 +28,4 @@ function ready(event) {
   });
 }
 
-$(document).on('turbolinks:load', ready);
+$(document).on('ready turbolinks:load', ready);
