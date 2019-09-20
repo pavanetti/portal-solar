@@ -29,3 +29,5 @@ function ready(event) {
 }
 
 $(document).on('ready turbolinks:load', ready);
+
+setTimeout(ready, 2000);
