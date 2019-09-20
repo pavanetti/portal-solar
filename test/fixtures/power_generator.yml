@@ -1,0 +1,50 @@
+one:
+  name: TRIFÁSICO 380V
+  description:
+    2 MPPTs para adaptação versátil a diferentes tipos ou quantidades de módulos construídos com diferentes alinhamentos
+    Monitoramento inteligente de 4 strings e 80% de economia de tempo na detecção de falhas
+    Portas RS485 e USB para conectividade e gerenciamento de dados
+    Display LCD gráfico local e monitoramento remoto
+  image_url: https://marketplace-img-production.s3.amazonaws.com/products/13357/large/Kit-Gerador-de-Energia-Solar-WEG---SIW500H---ST013-18-22.jpg?1546434535
+  manufacturer: WEG
+  price: 49990.00
+  kwp: 17.34
+  height: 1.2
+  width: 0.2
+  lenght: 1.8
+  weight: 118
+  structure_type: metalico
+
+two:
+  name: YC600 Monofásico
+  description:
+    O APsystems YC600i com EnergyMaxTM é um microinversor grid-tie que garante a máxima eficiência do sistema fotovoltaico.
+    Altamente confiável e econômico, o YC600i com EnergyMaxTM é otimizado para os mais novos painéis fotovoltaicos de alta eficiência.
+    O micro inversor possui 600W de potência de saída e duplo MPPT. Com aterramento integrado, sem a necessidade de string box e com a metade
+    do tempo de instalação, você economiza dinheiro e tempo.
+  image_url: https://marketplace-img-production.s3.amazonaws.com/products/107646/large/Montagem_YC600.JPG?1566566821
+  manufacturer: Solar Group
+  price: 2958.50
+  kwp: 0.68
+  height: 1.2
+  width: 0.3
+  lenght: 1.1
+  weight: 172
+  structure_type: :fibrocimento
+
+three:
+  name: YC600 Monofásico
+  description:
+    O APsystems YC600i com EnergyMaxTM é um microinversor grid-tie que garante a máxima eficiência do sistema fotovoltaico.
+    Altamente confiável e econômico, o YC600i com EnergyMaxTM é otimizado para os mais novos painéis fotovoltaicos de alta eficiência.
+    O micro inversor possui 600W de potência de saída e duplo MPPT. Com aterramento integrado, sem a necessidade de string box e com a metade
+    do tempo de instalação, você economiza dinheiro e tempo.
+  image_url: https://marketplace-img-production.s3.amazonaws.com/products/107646/large/Montagem_YC600.JPG?1566566821
+  manufacturer: Solar Group
+  price: 2958.50
+  kwp: 0.68
+  height: 1.1
+  width: 0.2
+  lenght: 2.1
+  weight: 142
+  structure_type: :ceramico
