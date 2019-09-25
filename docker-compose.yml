@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  portal:
+    container_name: portal-solar
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://postgres@database/portal_solar
+    depends_on:
+      - database
+    ports:
+      - 3000:3000
+  database:
+    image: postgres:9.5
+    container_name: portal-solar-database
+    environment:
+      - POSTGRES_DB=portal_solar
+    volumes:
+      - data:/var/lib/postgresql/data:rw
+
+volumes:
+  data:
